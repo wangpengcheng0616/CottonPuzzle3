@@ -37,7 +37,6 @@ public class ScenesManager : MonoBehaviour
 
         var mapId = Random.Range(0, mapNum);
         m_MapName = m_MapNameList[mapId];
-        Debug.LogError("//--" + m_MapName);
     }
 
     private void OnGameStartEvent()
@@ -50,11 +49,13 @@ public class ScenesManager : MonoBehaviour
 
         InitMap();
         StartCoroutine(LoadScene(m_MapName));
+        EventHandler.CallGameMusicPlay(AudioPlayType.Play);
     }
 
     private void OnGameBackEvent()
     {
         SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        EventHandler.CallGameMusicPlay(AudioPlayType.Stop);
     }
 
     private void OnGameReplayEvent(string sceneName)
@@ -81,10 +82,8 @@ public class ScenesManager : MonoBehaviour
 
     private static IEnumerator SwitchScene(string sceneName)
     {
-        // UnLoad Scene
         yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
 
-        // Load Scene
         yield return LoadScene(sceneName);
     }
 }

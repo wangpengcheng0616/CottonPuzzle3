@@ -29,4 +29,11 @@ public class EventHandler
     {
         GamePassEvent?.Invoke(sceneName);
     }
+
+    public static event Action<AudioPlayType> GameMusicPlay;
+
+    public static void CallGameMusicPlay(AudioPlayType audioPlayType)
+    {
+        GameMusicPlay?.Invoke(audioPlayType);
+    }
 }

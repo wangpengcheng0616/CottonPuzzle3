@@ -23,6 +23,11 @@ public class UIGameSetting : MonoBehaviour
 
     private void OnClickMusic()
     {
-       m_BtnMusicOff.SetActive(!m_BtnMusicOff.activeSelf);
+        var value = m_BtnMusicOff.activeSelf;
+
+        var audioPlayType = value ? AudioPlayType.MuteOff : AudioPlayType.MuteOn;
+
+        m_BtnMusicOff.SetActive(!value);
+        EventHandler.CallGameMusicPlay(audioPlayType);
     }
 }
