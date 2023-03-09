@@ -49,13 +49,14 @@ public class ScenesManager : MonoBehaviour
 
         InitMap();
         StartCoroutine(LoadScene(m_MapName));
-        EventHandler.CallGameMusicPlay(AudioPlayType.Play);
+        EventHandler.CallGameMusicPlay(AudioClip.GameMusic, AudioPlayType.Play);
     }
 
     private void OnGameBackEvent()
     {
         SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-        EventHandler.CallGameMusicPlay(AudioPlayType.Stop);
+        EventHandler.CallGameMusicPlay(AudioClip.GameMusic, AudioPlayType.Stop);
+        EventHandler.CallGameMusicPlay(AudioClip.Click, AudioPlayType.MuteOff);
     }
 
     private void OnGameReplayEvent(string sceneName)
@@ -83,7 +84,6 @@ public class ScenesManager : MonoBehaviour
     private static IEnumerator SwitchScene(string sceneName)
     {
         yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-
         yield return LoadScene(sceneName);
     }
 }

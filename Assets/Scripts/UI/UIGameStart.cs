@@ -37,19 +37,23 @@ public class UIGameStart : MonoBehaviour
 
     private void OnClickGameBack()
     {
+        EventHandler.CallGameMusicPlay(AudioClip.Click, AudioPlayType.Play);
         EventHandler.CallGameBackEvent();
         this.gameObject.SetActive(false);
-        UIManager.Instance.m_UIGameLobby.gameObject.SetActive(true);
+        UIManager.Instance.ShowUI(UIType.UIGameLobby);
     }
 
     private void OnClickGameSetting()
     {
+        EventHandler.CallGameMusicPlay(AudioClip.Click, AudioPlayType.Play);
         this.gameObject.SetActive(false);
-        UIManager.Instance.m_UIGameSetting.gameObject.SetActive(true);
+        UIManager.Instance.ShowUI(UIType.UIGameSetting);
     }
 
     private void OnClickGameRePlay()
     {
+        EventHandler.CallGameMusicPlay(AudioClip.Click, AudioPlayType.Play);
+        // TODO: UILoading
         EventHandler.CallGameReplayEvent(GetSceneName());
     }
 }

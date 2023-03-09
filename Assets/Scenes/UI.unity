@@ -427,18 +427,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 32
-    m_FontStyle: 0
+    m_FontSize: 36
+    m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5F00\u59CB\u6E38\u620F"
+  m_Text: "\u5F00 \u59CB \u6E38 \u620F"
 --- !u!222 &324039384
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -725,6 +725,7 @@ GameObject:
   - component: {fileID: 563253024}
   - component: {fileID: 563253023}
   - component: {fileID: 563253025}
+  - component: {fileID: 563253026}
   m_Layer: 5
   m_Name: UIGameLobby
   m_TagString: Untagged
@@ -766,7 +767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -804,6 +805,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BtnGameStart: {fileID: 1712854792}
+--- !u!225 &563253026
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563253021}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &589361840
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.74509805}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -938,6 +951,7 @@ GameObject:
   - component: {fileID: 748883565}
   - component: {fileID: 748883564}
   - component: {fileID: 748883566}
+  - component: {fileID: 748883567}
   m_Layer: 5
   m_Name: UIGameSetting
   m_TagString: Untagged
@@ -1023,6 +1037,18 @@ MonoBehaviour:
   m_BtnMusicOff: {fileID: 1412380922}
   m_BtnVol: {fileID: 288517187}
   m_BtnVolOff: {fileID: 885219811}
+--- !u!225 &748883567
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748883561}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &774009150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,8 +1626,8 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 32
-    m_FontStyle: 0
+    m_FontSize: 36
+    m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -1611,7 +1637,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7ED3\u675F\u6E38\u620F"
+  m_Text: "\u7ED3 \u675F \u6E38 \u620F"
 --- !u!222 &1011331148
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1753,6 +1779,7 @@ GameObject:
   - component: {fileID: 1404208804}
   - component: {fileID: 1404208803}
   - component: {fileID: 1404208805}
+  - component: {fileID: 1404208806}
   m_Layer: 5
   m_Name: UIGameStart
   m_TagString: Untagged
@@ -1836,6 +1863,18 @@ MonoBehaviour:
   m_BtnGameBack: {fileID: 918559257}
   m_BtnGameSetting: {fileID: 361573540}
   m_BtnGameRePlay: {fileID: 774009152}
+--- !u!225 &1404208806
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404208800}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1412380922
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,7 +2048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.74509805}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2046,6 +2085,7 @@ GameObject:
   - component: {fileID: 2021906708}
   - component: {fileID: 2021906707}
   - component: {fileID: 2021906709}
+  - component: {fileID: 2021906710}
   m_Layer: 5
   m_Name: UIGameOver
   m_TagString: Untagged
@@ -2087,7 +2127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2125,6 +2165,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BtnGameBack: {fileID: 589361842}
+--- !u!225 &2021906710
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021906705}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2079033014
 GameObject:
   m_ObjectHideFlags: 0

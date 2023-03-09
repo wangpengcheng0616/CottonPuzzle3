@@ -2,30 +2,31 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    private AudioSource m_AudioSource;
+    [SerializeField] private AudioSource[] m_AudioSources;
 
     private void Awake()
     {
-        m_AudioSource = GetComponent<AudioSource>();
         EventHandler.GameMusicPlay += OnGameMusicPlay;
     }
 
-    private void OnGameMusicPlay(AudioPlayType audioPlayType)
+    private void OnGameMusicPlay(AudioClip audioClip, AudioPlayType audioPlayType)
     {
+        var id = (int)audioClip;
+        var audioSource = m_AudioSources[id];
         switch (audioPlayType)
         {
             case AudioPlayType.Play:
-                m_AudioSource.Play();
+                audioSource.Play();
                 break;
             case AudioPlayType.MuteOn:
-                m_AudioSource.mute = true;
+                audioSource.mute = true;
                 break;
             case AudioPlayType.MuteOff:
-                m_AudioSource.mute = false;
+                audioSource.mute = false;
                 break;
             case AudioPlayType.Stop:
-                m_AudioSource.Stop();
-                m_AudioSource.mute = false;
+                audioSource.Stop();
+                audioSource.mute = false;
                 break;
         }
     }
@@ -34,6 +35,12 @@ public class AudioManager : MonoBehaviour
     {
         EventHandler.GameMusicPlay -= OnGameMusicPlay;
     }
+}
+
+public enum AudioClip
+{
+    GameMusic,
+    Click
 }
 
 public enum AudioPlayType
