@@ -35,7 +35,8 @@ public class ScenesManager : MonoBehaviour
             return;
         }
 
-        var mapId = Random.Range(0, mapNum);
+        // var mapId = Random.Range(0, mapNum);
+        var mapId = 0;
         m_MapName = m_MapNameList[mapId];
     }
 
