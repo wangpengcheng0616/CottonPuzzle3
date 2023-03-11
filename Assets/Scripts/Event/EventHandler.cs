@@ -31,21 +31,35 @@ public class EventHandler
         GamePassEvent?.Invoke(sceneName);
     }
 
-    public static event Action<AudioClip, AudioPlayType> GameMusicPlay;
+    public static event Action<AudioClip, AudioPlayType> GameMusicPlayEvent;
 
-    public static void CallGameMusicPlay(AudioClip audioClip, AudioPlayType audioPlayType)
+    public static void CallGameMusicPlayEvent(AudioClip audioClip, AudioPlayType audioPlayType)
     {
-        GameMusicPlay?.Invoke(audioClip, audioPlayType);
+        GameMusicPlayEvent?.Invoke(audioClip, audioPlayType);
     }
 
     #region Mouse
 
-    public static event Action<Vector3> GameMouseDown;
+    public static event Action<Vector3> GameMouseDownEvent;
 
-    public static void CallGameMouseDown(Vector3 vector3)
+    public static void CallGameMouseDownEvent(Vector3 vector3)
     {
-        GameMouseDown?.Invoke(vector3);
+        GameMouseDownEvent?.Invoke(vector3);
     }
 
     #endregion
+
+    public static event Action<int> GamePassNumEvent;
+
+    public static void CallGamePassNumEvent(int num)
+    {
+        GamePassNumEvent?.Invoke(num);
+    }
+
+    public static event Action<string> GameGetMapNameEvent;
+
+    public static void CallGameGetMapNameEvent(string name)
+    {
+        GameGetMapNameEvent?.Invoke(name);
+    }
 }

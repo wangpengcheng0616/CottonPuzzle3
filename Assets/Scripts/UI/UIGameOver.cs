@@ -12,9 +12,9 @@ public class UIGameOver : MonoBehaviour
 
     private void OnClickGameBack()
     {
-        EventHandler.CallGameMusicPlay(AudioClip.Click, AudioPlayType.Play);
+        EventHandler.CallGameMusicPlayEvent(AudioClip.Click, AudioPlayType.Play);
         EventHandler.CallGameBackEvent();
-        this.gameObject.SetActive(false);
+        UIManager.Instance.HideUI(UIType.UIGameOver);
         UIManager.Instance.HideUI(UIType.UIGameStart);
         UIManager.Instance.ShowUI(UIType.UIGameLobby);
     }

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,26 +30,26 @@ public class UIGameSetting : MonoBehaviour
 
     private void OnClickSettingExit()
     {
-        EventHandler.CallGameMusicPlay(AudioClip.Click, AudioPlayType.Play);
-        this.gameObject.SetActive(false);
+        EventHandler.CallGameMusicPlayEvent(AudioClip.Click, AudioPlayType.Play);
+        UIManager.Instance.HideUI(UIType.UIGameSetting);
         UIManager.Instance.ShowUI(UIType.UIGameStart);
     }
 
     private void OnClickMusic()
     {
-        EventHandler.CallGameMusicPlay(AudioClip.Click, AudioPlayType.Play);
+        EventHandler.CallGameMusicPlayEvent(AudioClip.Click, AudioPlayType.Play);
         var value = m_BtnMusicOff.activeSelf;
         var audioPlayType = value ? AudioPlayType.MuteOff : AudioPlayType.MuteOn;
         m_BtnMusicOff.SetActive(!value);
-        EventHandler.CallGameMusicPlay(AudioClip.GameMusic, audioPlayType);
+        EventHandler.CallGameMusicPlayEvent(AudioClip.GameMusic, audioPlayType);
     }
 
     private void OnClickVol()
     {
-        EventHandler.CallGameMusicPlay(AudioClip.Click, AudioPlayType.Play);
+        EventHandler.CallGameMusicPlayEvent(AudioClip.Click, AudioPlayType.Play);
         var value = m_BtnVolOff.activeSelf;
         var audioPlayType = value ? AudioPlayType.MuteOff : AudioPlayType.MuteOn;
         m_BtnVolOff.SetActive(!value);
-        EventHandler.CallGameMusicPlay(AudioClip.Click, audioPlayType);
+        EventHandler.CallGameMusicPlayEvent(AudioClip.Click, audioPlayType);
     }
 }

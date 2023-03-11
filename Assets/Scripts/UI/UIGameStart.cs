@@ -17,43 +17,25 @@ public class UIGameStart : MonoBehaviour
         m_BtnGameRePlay.onClick.AddListener(OnClickGameRePlay);
     }
 
-    /*
-     * TODO: Test
-     * 通过逻辑
-     */
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            EventHandler.CallGamePassEvent(GetSceneName());
-        }
-    }
-
-    private string GetSceneName()
-    {
-        m_SceneName = SceneManager.GetActiveScene().name;
-        return m_SceneName;
-    }
-
     private void OnClickGameBack()
     {
-        EventHandler.CallGameMusicPlay(AudioClip.Click, AudioPlayType.Play);
+        EventHandler.CallGameMusicPlayEvent(AudioClip.Click, AudioPlayType.Play);
         EventHandler.CallGameBackEvent();
-        this.gameObject.SetActive(false);
+        UIManager.Instance.HideUI(UIType.UIGameStart);
         UIManager.Instance.ShowUI(UIType.UIGameLobby);
     }
 
     private void OnClickGameSetting()
     {
-        EventHandler.CallGameMusicPlay(AudioClip.Click, AudioPlayType.Play);
-        this.gameObject.SetActive(false);
+        EventHandler.CallGameMusicPlayEvent(AudioClip.Click, AudioPlayType.Play);
+        UIManager.Instance.HideUI(UIType.UIGameStart);
         UIManager.Instance.ShowUI(UIType.UIGameSetting);
     }
 
     private void OnClickGameRePlay()
     {
-        EventHandler.CallGameMusicPlay(AudioClip.Click, AudioPlayType.Play);
+        EventHandler.CallGameMusicPlayEvent(AudioClip.Click, AudioPlayType.Play);
         // TODO: UILoading
-        EventHandler.CallGameReplayEvent(GetSceneName());
+        EventHandler.CallGameReplayEvent(SceneManager.GetActiveScene().name);
     }
 }

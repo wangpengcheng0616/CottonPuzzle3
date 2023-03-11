@@ -10,12 +10,12 @@ public class GridManager : MonoBehaviour
 
     private void Awake()
     {
-        EventHandler.GameMouseDown += OnGameMouseDown;
+        EventHandler.GameMouseDownEvent += OnGameMouseDownEvent;
     }
 
     private void OnDestroy()
     {
-        EventHandler.GameMouseDown -= OnGameMouseDown;
+        EventHandler.GameMouseDownEvent -= OnGameMouseDownEvent;
     }
 
     private void Start()
@@ -26,7 +26,7 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    private void OnGameMouseDown(Vector3 pos)
+    private void OnGameMouseDownEvent(Vector3 pos)
     {
         float disHead = (pos - Snakeobjs.First().transform.localPosition).magnitude;
         float disTail = (pos - Snakeobjs.Last().transform.localPosition).magnitude;

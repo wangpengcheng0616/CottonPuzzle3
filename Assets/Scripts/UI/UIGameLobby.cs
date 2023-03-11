@@ -12,9 +12,9 @@ public class UIGameLobby : MonoBehaviour
 
     private void OnClickGameStart()
     {
-        EventHandler.CallGameMusicPlay(AudioClip.Click,AudioPlayType.Play);
+        EventHandler.CallGameMusicPlayEvent(AudioClip.Click,AudioPlayType.Play);
         EventHandler.CallGameStartEvent();
-        this.gameObject.SetActive(false);
+        UIManager.Instance.HideUI(UIType.UIGameLobby);
         UIManager.Instance.ShowUI(UIType.UIGameStart);
     }
 }

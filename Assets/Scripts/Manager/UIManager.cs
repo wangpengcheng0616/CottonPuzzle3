@@ -8,6 +8,7 @@ public class UIManager : MonoSigleton<UIManager>
     public UIGameStart m_UIGameStart;
     public UIGameSetting m_UIGameSetting;
     public UIGameOver m_UIGameOver;
+    public UILoading m_UILoadding;
 
     public Dictionary<UIType, GameObject> m_UIDictionary;
 
@@ -23,6 +24,7 @@ public class UIManager : MonoSigleton<UIManager>
         m_UIDictionary.Add(UIType.UIGameStart, m_UIGameStart.gameObject);
         m_UIDictionary.Add(UIType.UIGameSetting, m_UIGameSetting.gameObject);
         m_UIDictionary.Add(UIType.UIGameOver, m_UIGameOver.gameObject);
+        m_UIDictionary.Add(UIType.UILoading, m_UILoadding.gameObject);
     }
 
     protected override void OnDestroy()
@@ -31,33 +33,33 @@ public class UIManager : MonoSigleton<UIManager>
         m_UIDictionary.Clear();
     }
 
-    public void ShowUI(UIType uiType)
+    public void ShowUI(UIType uiType, float duration = 2f)
     {
         if (m_UIDictionary.ContainsKey(uiType))
         {
             m_UIDictionary[uiType].SetActive(true);
-            UIFadeIn(uiType);
+            UIFadeIn(uiType, duration);
         }
     }
 
-    public void HideUI(UIType uiType)
+    public void HideUI(UIType uiType, float duration = 2f)
     {
         if (m_UIDictionary.ContainsKey(uiType))
         {
-            UIFadeOut(uiType);
+            UIFadeOut(uiType, duration);
             m_UIDictionary[uiType].SetActive(false);
         }
     }
 
-    public void UIFadeIn(UIType uiType)
+    public void UIFadeIn(UIType uiType, float duration)
     {
         m_UIDictionary[uiType].GetComponent<CanvasGroup>().alpha = 0;
-        m_UIDictionary[uiType].GetComponent<CanvasGroup>().DOFade(1, 2f);
+        m_UIDictionary[uiType].GetComponent<CanvasGroup>().DOFade(1, duration);
     }
 
-    public void UIFadeOut(UIType uiType)
+    public void UIFadeOut(UIType uiType, float duration)
     {
-        m_UIDictionary[uiType].GetComponent<CanvasGroup>().DOFade(0, 2f);
+        m_UIDictionary[uiType].GetComponent<CanvasGroup>().DOFade(0, duration);
         m_UIDictionary[uiType].GetComponent<CanvasGroup>().alpha = 1;
     }
 
@@ -73,4 +75,5 @@ public enum UIType
     UIGameStart,
     UIGameSetting,
     UIGameOver,
+    UILoading,
 }

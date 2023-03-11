@@ -6,10 +6,10 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        EventHandler.GameMusicPlay += OnGameMusicPlay;
+        EventHandler.GameMusicPlayEvent += OnGameMusicPlayEvent;
     }
 
-    private void OnGameMusicPlay(AudioClip audioClip, AudioPlayType audioPlayType)
+    private void OnGameMusicPlayEvent(AudioClip audioClip, AudioPlayType audioPlayType)
     {
         var id = (int)audioClip;
         var audioSource = m_AudioSources[id];
@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventHandler.GameMusicPlay -= OnGameMusicPlay;
+        EventHandler.GameMusicPlayEvent -= OnGameMusicPlayEvent;
     }
 }
 
