@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class EventHandler
 {
@@ -36,4 +37,15 @@ public class EventHandler
     {
         GameMusicPlay?.Invoke(audioClip, audioPlayType);
     }
+
+    #region Mouse
+
+    public static event Action<Vector3> GameMouseDown;
+
+    public static void CallGameMouseDown(Vector3 vector3)
+    {
+        GameMouseDown?.Invoke(vector3);
+    }
+
+    #endregion
 }
