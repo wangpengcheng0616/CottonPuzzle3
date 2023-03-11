@@ -15,6 +15,6 @@ public class UIGameLobby : MonoBehaviour
         EventHandler.CallGameMusicPlayEvent(AudioClip.Click,AudioPlayType.Play);
         EventHandler.CallGameStartEvent();
         UIManager.Instance.HideUI(UIType.UIGameLobby);
-        UIManager.Instance.ShowUI(UIType.UIGameStart);
+        // UIManager.Instance.ShowUI(UIType.UIGameStart);
     }
 }

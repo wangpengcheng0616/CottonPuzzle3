@@ -9,14 +9,18 @@ public class UILoading : MonoBehaviour
     [SerializeField] private Text m_Text;
 
     [SerializeField] private Slider m_Slider;
-    [SerializeField] private Text m_SliderPercentText;
 
     private void OnEnable()
     {
-        m_Slider.DOValue(1, 3f);
-        DOTween.Sequence().AppendInterval(1f).AppendCallback
+        m_Slider.DOValue(1, 2f);
+        DOTween.Sequence().AppendInterval(2f).AppendCallback
         (
-            () => { UIManager.Instance.HideUI(UIType.UILoading); }
+            () =>
+            {
+                UIManager.Instance.HideUI(UIType.UILoading);
+                UIManager.Instance.ShowUI(UIType.UIGameStart);
+                m_Slider.value = 0;
+            }
         );
     }
 }

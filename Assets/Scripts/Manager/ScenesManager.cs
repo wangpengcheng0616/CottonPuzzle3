@@ -77,21 +77,19 @@ public class ScenesManager : MonoBehaviour
 
     private static IEnumerator LoadScene(string sceneName)
     {
+        UIManager.Instance.ShowUI(UIType.UILoading);
+        yield return new WaitForSeconds(2f);
         // yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         yield return operation;
         var scene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
         SceneManager.SetActiveScene(scene);
         EventHandler.CallGameGetMapNameEvent(sceneName);
-        UIManager.Instance.ShowUI(UIType.UILoading);
-        yield return new WaitForSeconds(4f);
     }
 
     private static IEnumerator SwitchScene(string sceneName)
     {
         yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-
-        // TODO: UILoading
 
         yield return LoadScene(sceneName);
     }

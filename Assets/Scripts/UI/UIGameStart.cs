@@ -35,7 +35,7 @@ public class UIGameStart : MonoBehaviour
     private void OnClickGameRePlay()
     {
         EventHandler.CallGameMusicPlayEvent(AudioClip.Click, AudioPlayType.Play);
-        // TODO: UILoading
+        UIManager.Instance.HideUI(UIType.UIGameStart);
         EventHandler.CallGameReplayEvent(SceneManager.GetActiveScene().name);
     }
 }
