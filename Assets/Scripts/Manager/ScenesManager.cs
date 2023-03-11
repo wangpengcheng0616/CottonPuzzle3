@@ -31,7 +31,7 @@ public class ScenesManager : MonoBehaviour
         var mapNum = m_MapNameList.Count;
         if (mapNum == 0)
         {
-            UIManager.Instance.ShowUI(UIType.UIGameOver);
+            m_MapName = null;
             return;
         }
 
@@ -71,7 +71,15 @@ public class ScenesManager : MonoBehaviour
         {
             m_MapNameList.Remove(sceneName);
             InitMap();
-            StartCoroutine(SwitchScene(m_MapName));
+
+            if (m_MapName == null)
+            {
+                UIManager.Instance.ShowUI(UIType.UIGameOver);
+            }
+            else
+            {
+                StartCoroutine(SwitchScene(m_MapName));
+            }
         }
     }
 
