@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class SnakeColor : MonoBehaviour
@@ -91,6 +92,11 @@ public class SnakeColor : MonoBehaviour
         }
     }
 
+    /*
+     * TODO: Bug Fix
+     * Collider
+     */
+    
     private void ChangeSnakeSprite(SnakeType snakeType)
     {
         spriteRenderer.sprite = spritesChange[(int)snakeType];
