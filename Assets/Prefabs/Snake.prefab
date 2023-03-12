@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2084650792816501374}
   - component: {fileID: 2084650792816501351}
   - component: {fileID: 2084650792816501350}
+  - component: {fileID: 3297170096633069737}
   m_Layer: 0
   m_Name: TailYellow
-  m_TagString: Untagged
+  m_TagString: Snake
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,6 +158,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3297170096633069737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084650792816501368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7882e23e7afa4a4a82c4b8115beaef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SnakeId: 0
+  m_SnakeDragType: 0
 --- !u!1 &6991716057381115049
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,9 +183,10 @@ GameObject:
   - component: {fileID: 6991716057381115048}
   - component: {fileID: 6991716057381115050}
   - component: {fileID: 6991716057381115051}
+  - component: {fileID: 2403482907279603931}
   m_Layer: 0
   m_Name: Body01
-  m_TagString: Untagged
+  m_TagString: Snake
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,6 +284,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!61 &2403482907279603931
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991716057381115049}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &6991716057483851748
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,9 +321,10 @@ GameObject:
   - component: {fileID: 6991716057483851751}
   - component: {fileID: 6991716057483851745}
   - component: {fileID: 6991716057483851750}
+  - component: {fileID: 3699419647493976171}
   m_Layer: 0
   m_Name: Body02
-  m_TagString: Untagged
+  m_TagString: Snake
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -379,6 +422,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!61 &3699419647493976171
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991716057483851748}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &6991716057668463347
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +492,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1774567932102242486, guid: 13e4454fce03d44cca6c9656466ce921, type: 3}
       propertyPath: m_Name
-      value: HeadGreen
+      value: Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774567932102242486, guid: 13e4454fce03d44cca6c9656466ce921, type: 3}
+      propertyPath: m_TagString
+      value: Snake
       objectReference: {fileID: 0}
     - target: {fileID: 1774567932102242487, guid: 13e4454fce03d44cca6c9656466ce921, type: 3}
       propertyPath: m_RootOrder

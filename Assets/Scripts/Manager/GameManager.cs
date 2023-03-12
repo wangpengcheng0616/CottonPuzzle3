@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     // TODO: configuration table
     private string[] m_MapNameArray = new[] { "Map01", "Map02", "Map03" };
-    private int[] m_GamePassNumArray = new[] { 2, 2, 1 };
+    private int[] m_GamePassNumArray = new[] { 16, 15, 8 };
     private int m_GamePassNum;
 
     private void Awake()

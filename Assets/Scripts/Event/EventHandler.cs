@@ -62,4 +62,11 @@ public class EventHandler
     {
         GameGetMapNameEvent?.Invoke(name);
     }
+
+    public static event Action<SnakeId, SnakeDragType> GameSnakeMoveEvent;
+
+    public static void CallGameSnakeMoveEvent(SnakeId snakeId, SnakeDragType snakeDragType)
+    {
+        GameSnakeMoveEvent?.Invoke(snakeId, snakeDragType);
+    }
 }

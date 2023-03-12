@@ -8,7 +8,8 @@ public class SnakeColor : MonoBehaviour
         Yellow = 0,
         Red,
         Blue,
-        Green
+        Green,
+        Gray
     }
 
     public SnakeType m_SnakeType;
@@ -24,37 +25,43 @@ public class SnakeColor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        switch (m_SnakeType)
-        {
-            case SnakeType.Yellow:
-                if (col.CompareTag("Yellow"))
+        DOTween.Sequence().AppendInterval(0.05f).AppendCallback
+        (
+            () =>
+            {
+                switch (m_SnakeType)
                 {
-                    ChangeSnakeSprite(m_SnakeType);
-                }
+                    case SnakeType.Yellow:
+                        if (col.CompareTag("Yellow"))
+                        {
+                            ChangeSnakeSprite(m_SnakeType);
+                        }
 
-                break;
-            case SnakeType.Red:
-                if (col.CompareTag("Red"))
-                {
-                    ChangeSnakeSprite(m_SnakeType);
-                }
+                        break;
+                    case SnakeType.Red:
+                        if (col.CompareTag("Red"))
+                        {
+                            ChangeSnakeSprite(m_SnakeType);
+                        }
 
-                break;
-            case SnakeType.Blue:
-                if (col.CompareTag("Blue"))
-                {
-                    ChangeSnakeSprite(m_SnakeType);
-                }
+                        break;
+                    case SnakeType.Blue:
+                        if (col.CompareTag("Blue"))
+                        {
+                            ChangeSnakeSprite(m_SnakeType);
+                        }
 
-                break;
-            case SnakeType.Green:
-                if (col.CompareTag("Green"))
-                {
-                    ChangeSnakeSprite(m_SnakeType);
-                }
+                        break;
+                    case SnakeType.Green:
+                        if (col.CompareTag("Green"))
+                        {
+                            ChangeSnakeSprite(m_SnakeType);
+                        }
 
-                break;
-        }
+                        break;
+                }
+            }
+        );
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -92,11 +99,6 @@ public class SnakeColor : MonoBehaviour
         }
     }
 
-    /*
-     * TODO: Bug Fix
-     * Collider
-     */
-    
     private void ChangeSnakeSprite(SnakeType snakeType)
     {
         spriteRenderer.sprite = spritesChange[(int)snakeType];

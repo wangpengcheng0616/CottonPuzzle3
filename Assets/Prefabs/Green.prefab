@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1774567932102242480}
   - component: {fileID: 1774567932102242473}
   - component: {fileID: 1774567932102242472}
+  - component: {fileID: 8949685318594736043}
   m_Layer: 0
-  m_Name: HeadGreen
-  m_TagString: Untagged
+  m_Name: Green
+  m_TagString: Snake
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774567932102242486}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5999999, y: 1.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -157,3 +158,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8949685318594736043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774567932102242486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7882e23e7afa4a4a82c4b8115beaef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SnakeId: 0
+  m_SnakeDragType: 0
