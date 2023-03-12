@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,10 +35,16 @@ public class GameManager : MonoBehaviour
     private void OnGamePassNumEvent(int num)
     {
         m_GamePassNum += num;
-        // TODO: Collider Bug
-        if (m_GamePassNum == 0)
-        {
-            EventHandler.CallGamePassEvent(SceneManager.GetActiveScene().name);
-        }
+        // TODO: Fix Collider Bug
+        DOTween.Sequence().AppendInterval(0.2f).AppendCallback
+        (
+            () =>
+            {
+                if (m_GamePassNum == 0)
+                {
+                    EventHandler.CallGamePassEvent(SceneManager.GetActiveScene().name);
+                }
+            }
+        );
     }
 }
