@@ -36,7 +36,7 @@ public class GridManager : MonoBehaviour
     {
         foreach (var grid in GridList)
         {
-            grid.AddComponent<GetGridPos>();
+            grid.AddComponent<GridPos>();
         }
     }
 
@@ -56,6 +56,12 @@ public class GridManager : MonoBehaviour
                 if (disHead < 1.3f)
                 {
                     RefreshSnake(m_CurrentSnakeDragType);
+
+                    // TODO: Line
+                    m_Snakes[m_CurrentSnakeId].transforms.First().GetChild(0).gameObject.SetActive(true);
+                    m_Snakes[m_CurrentSnakeId].transforms.Last().GetChild(0).gameObject.SetActive(false);
+                    RefreshSnakeRotation(pos, m_Snakes[m_CurrentSnakeId].transforms.First().localPosition, 0);
+
                     m_Snakes[m_CurrentSnakeId].transforms.First().transform.localPosition = pos;
                 }
 
@@ -67,6 +73,13 @@ public class GridManager : MonoBehaviour
                 if (disTail < 1.3f)
                 {
                     RefreshSnake(m_CurrentSnakeDragType);
+
+                    // Line
+                    m_Snakes[m_CurrentSnakeId].transforms.First().GetChild(0).gameObject.SetActive(false);
+                    m_Snakes[m_CurrentSnakeId].transforms.Last().GetChild(0).gameObject.SetActive(true);
+                    RefreshSnakeRotation(pos, m_Snakes[m_CurrentSnakeId].transforms.Last().localPosition,
+                        m_Snakes[m_CurrentSnakeId].transforms.Length - 1);
+
                     m_Snakes[m_CurrentSnakeId].transforms.Last().localPosition = pos;
                 }
 
@@ -82,6 +95,9 @@ public class GridManager : MonoBehaviour
             case SnakeDragType.Head:
                 for (var i = length; i > 0; i--)
                 {
+                    RefreshSnakeRotation(m_Snakes[m_CurrentSnakeId].transforms[i - 1].localPosition,
+                        m_Snakes[m_CurrentSnakeId].transforms[i].localPosition, i);
+
                     m_Snakes[m_CurrentSnakeId].transforms[i].localPosition =
                         m_Snakes[m_CurrentSnakeId].transforms[i - 1].localPosition;
                 }
@@ -90,11 +106,39 @@ public class GridManager : MonoBehaviour
             case SnakeDragType.Tail:
                 for (int i = 0; i < length; i++)
                 {
+                    RefreshSnakeRotation(m_Snakes[m_CurrentSnakeId].transforms[i + 1].localPosition,
+                        m_Snakes[m_CurrentSnakeId].transforms[i].localPosition, i);
+
                     m_Snakes[m_CurrentSnakeId].transforms[i].localPosition =
                         m_Snakes[m_CurrentSnakeId].transforms[i + 1].localPosition;
                 }
 
                 break;
+        }
+    }
+
+    private void RefreshSnakeRotation(Vector3 targetPos, Vector3 currentPos, int id)
+    {
+        var x = targetPos.x - currentPos.x;
+        var y = targetPos.y - currentPos.y;
+        if (x < 0)
+        {
+            m_Snakes[m_CurrentSnakeId].transforms[id].rotation = Quaternion.Euler(0, 0, 90f);
+        }
+
+        if (x > 0)
+        {
+            m_Snakes[m_CurrentSnakeId].transforms[id].rotation = Quaternion.Euler(0, 0, 270f);
+        }
+
+        if (y > 0)
+        {
+            m_Snakes[m_CurrentSnakeId].transforms[id].rotation = Quaternion.Euler(0, 0, 0f);
+        }
+
+        if (y < 0)
+        {
+            m_Snakes[m_CurrentSnakeId].transforms[id].rotation = Quaternion.Euler(0, 0, 180f);
         }
     }
 }

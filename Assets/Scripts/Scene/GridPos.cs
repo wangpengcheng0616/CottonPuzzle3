@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GetGridPos : MonoBehaviour
+public class GridPos : MonoBehaviour
 {
     private bool m_CanPlace = true;
 
