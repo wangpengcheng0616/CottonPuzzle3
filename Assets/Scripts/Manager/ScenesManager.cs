@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ScenesManager : MonoBehaviour
 {
-    private string[] m_MapNameArray = new[] { "Map01", "Map02", "Map03" };
+    private string[] m_MapNameArray = new[] { "Map01", "Map02" };
     private List<string> m_MapNameList = new List<string>();
     private string m_MapName;
 
@@ -16,6 +16,7 @@ public class ScenesManager : MonoBehaviour
         EventHandler.GameBackEvent += OnGameBackEvent;
         EventHandler.GamePassEvent += OnGamePassEvent;
         EventHandler.GameReplayEvent += OnGameReplayEvent;
+        EventHandler.GameContinueEvent += OnGameContinueEvent;
     }
 
     private void OnDestroy()
@@ -24,6 +25,7 @@ public class ScenesManager : MonoBehaviour
         EventHandler.GameBackEvent -= OnGameBackEvent;
         EventHandler.GamePassEvent -= OnGamePassEvent;
         EventHandler.GameReplayEvent -= OnGameReplayEvent;
+        EventHandler.GameContinueEvent -= OnGameContinueEvent;
     }
 
     private void InitMap()
@@ -35,8 +37,8 @@ public class ScenesManager : MonoBehaviour
             return;
         }
 
-        // var mapId = Random.Range(0, mapNum);
-        var mapId = 0;
+        var mapId = Random.Range(0, mapNum);
+
         m_MapName = m_MapNameList[mapId];
     }
 
@@ -48,8 +50,22 @@ public class ScenesManager : MonoBehaviour
             m_MapNameList.Add(mapName);
         }
 
+        DataManager.SetStringArray("AllMaps", m_MapNameList.ToArray());
+
         InitMap();
         StartCoroutine(LoadScene(m_MapName));
+        EventHandler.CallGameMusicPlayEvent(AudioClip.GameMusic, AudioPlayType.Play);
+    }
+
+    private void OnGameContinueEvent(string sceneName)
+    {
+        m_MapNameList.Clear();
+        foreach (var mapName in DataManager.GetStringArray("AllMaps"))
+        {
+            m_MapNameList.Add(mapName);
+        }
+
+        StartCoroutine(LoadScene(sceneName));
         EventHandler.CallGameMusicPlayEvent(AudioClip.GameMusic, AudioPlayType.Play);
     }
 
@@ -70,10 +86,14 @@ public class ScenesManager : MonoBehaviour
         if (m_MapNameList.Contains(sceneName))
         {
             m_MapNameList.Remove(sceneName);
+
+            DataManager.SetStringArray("AllMaps", m_MapNameList.ToArray());
+
             InitMap();
 
             if (m_MapName == null)
             {
+                DataManager.SetStringData("CurrentMap", string.Empty);
                 UIManager.Instance.ShowUI(UIType.UIGameOver);
             }
             else
@@ -85,14 +105,15 @@ public class ScenesManager : MonoBehaviour
 
     private static IEnumerator LoadScene(string sceneName)
     {
-        UIManager.Instance.ShowUI(UIType.UILoading);
-        yield return new WaitForSeconds(2f);
+        UIManager.Instance.ShowUI(UIType.UILoading,1f);
+        yield return new WaitForSeconds(1f);
         // yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         yield return operation;
         var scene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
         SceneManager.SetActiveScene(scene);
         EventHandler.CallGameGetMapNameEvent(sceneName);
+        DataManager.SetStringData("CurrentMap", sceneName);
     }
 
     private static IEnumerator SwitchScene(string sceneName)

@@ -10,6 +10,13 @@ public class EventHandler
         GameStartEvent?.Invoke();
     }
 
+    public static event Action<string> GameContinueEvent;
+
+    public static void CallGameContinueEvent(string sceneName)
+    {
+        GameContinueEvent?.Invoke(sceneName);
+    }
+
     public static event Action GameBackEvent;
 
     public static void CallGameBackEvent()

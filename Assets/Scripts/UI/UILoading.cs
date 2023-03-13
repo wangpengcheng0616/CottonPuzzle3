@@ -12,13 +12,14 @@ public class UILoading : MonoBehaviour
 
     private void OnEnable()
     {
-        m_Slider.DOValue(1, 2f);
-        DOTween.Sequence().AppendInterval(2f).AppendCallback
+        var duration = 1f;
+        m_Slider.DOValue(1, duration);
+        DOTween.Sequence().AppendInterval(duration).AppendCallback
         (
             () =>
             {
-                UIManager.Instance.HideUI(UIType.UILoading);
-                UIManager.Instance.ShowUI(UIType.UIGameStart);
+                UIManager.Instance.HideUI(UIType.UILoading, duration);
+                UIManager.Instance.ShowUI(UIType.UIGameStart, duration);
                 m_Slider.value = 0;
             }
         );

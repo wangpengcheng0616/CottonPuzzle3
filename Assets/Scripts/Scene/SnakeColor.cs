@@ -26,7 +26,7 @@ public class SnakeColor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        DOTween.Sequence().AppendInterval(0.05f).AppendCallback
+        DOTween.Sequence().AppendInterval(0f).AppendCallback
         (
             () =>
             {
