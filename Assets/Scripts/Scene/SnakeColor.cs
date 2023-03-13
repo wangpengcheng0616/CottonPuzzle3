@@ -9,7 +9,8 @@ public class SnakeColor : MonoBehaviour
         Red,
         Blue,
         Green,
-        Gray
+        Gray,
+        Black
     }
 
     public SnakeType m_SnakeType;
