@@ -27,6 +27,7 @@ public class UIGameStart : MonoBehaviour
 
     private void OnClickGameSetting()
     {
+        EventHandler.CallGameUISettingEvent(false);
         EventHandler.CallGameMusicPlayEvent(AudioClip.Click, AudioPlayType.Play);
         UIManager.Instance.HideUI(UIType.UIGameStart);
         UIManager.Instance.ShowUI(UIType.UIGameSetting);

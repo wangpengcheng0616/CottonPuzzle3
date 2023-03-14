@@ -76,4 +76,11 @@ public class EventHandler
     {
         GameSnakeMoveEvent?.Invoke(snakeId, snakeDragType);
     }
+
+    public static event Action<bool> GameUISettingEvent;
+
+    public static void CallGameUISettingEvent(bool boolValue)
+    {
+        GameUISettingEvent?.Invoke(boolValue);
+    }
 }

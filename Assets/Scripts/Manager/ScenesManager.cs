@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ScenesManager : MonoBehaviour
 {
-    private string[] m_MapNameArray = new[] { "Map01", "Map02" };
+    private string[] m_MapNameArray = new[] { "Map01", "Map02", "Map03" };
     private List<string> m_MapNameList = new List<string>();
     private string m_MapName;
 
@@ -105,7 +105,7 @@ public class ScenesManager : MonoBehaviour
 
     private static IEnumerator LoadScene(string sceneName)
     {
-        UIManager.Instance.ShowUI(UIType.UILoading,1f);
+        UIManager.Instance.ShowUI(UIType.UILoading, 1f);
         yield return new WaitForSeconds(1f);
         // yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);

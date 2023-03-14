@@ -30,6 +30,7 @@ public class UIGameSetting : MonoBehaviour
 
     private void OnClickSettingExit()
     {
+        EventHandler.CallGameUISettingEvent(true);
         EventHandler.CallGameMusicPlayEvent(AudioClip.Click, AudioPlayType.Play);
         UIManager.Instance.HideUI(UIType.UIGameSetting);
         UIManager.Instance.ShowUI(UIType.UIGameStart);
