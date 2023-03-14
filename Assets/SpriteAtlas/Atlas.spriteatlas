@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atlas
+  serializedVersion: 2
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: dd260f1b5929b4551884c9b6401959c7, type: 3}
+    - {fileID: 102900000, guid: 209fea731953e469485a4940749d14c5, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 928bac005a17d3b4db760dd922d94a5b, type: 3}
+  - {fileID: 21300000, guid: ee03a9a08adf8417581d35712ead6fa7, type: 3}
+  - {fileID: 21300000, guid: 7cc8abe0260332c4486dc953bdcdef91, type: 3}
+  - {fileID: 21300000, guid: d2cb63513fcf84346a10e2326df31562, type: 3}
+  - {fileID: 21300000, guid: c6463761455044ca39a79c06f85e00fa, type: 3}
+  - {fileID: 21300000, guid: 60366542435614cb48440c716d9a22c0, type: 3}
+  - {fileID: 21300000, guid: c1e00f62a16ff4238951863a9ebc8915, type: 3}
+  - {fileID: 21300000, guid: 447be7f3aa08f414b9d6f6bb5e069502, type: 3}
+  - {fileID: 21300000, guid: 83c162742a9964f1c9fa3e9f034790b1, type: 3}
+  - {fileID: 21300000, guid: d8744d8508007be4bb575eece2d22105, type: 3}
+  - {fileID: 21300000, guid: 7866099547d8d4884adce84bdceada87, type: 3}
+  - {fileID: 21300000, guid: 160a86d6a971a4df08f0a1775565ef9f, type: 3}
+  - {fileID: 21300000, guid: 37eeaf2749ae551418e773e996a0a08f, type: 3}
+  - {fileID: 21300000, guid: 82aed1f7daedd4ef9b2f7f24a2641322, type: 3}
+  - {fileID: 21300000, guid: 88cf9cf7f047c4c29a0d37ef2a143990, type: 3}
+  - {fileID: 21300000, guid: dce0964882aeb40a48ce87441875bc8d, type: 3}
+  - {fileID: 21300000, guid: cc4059a8ca4e8452b8a0abab6791a04a, type: 3}
+  - {fileID: 21300000, guid: e820143a6292a4a5684d4bf6407da0fa, type: 3}
+  - {fileID: 21300000, guid: 7f43a25aa266fef4c8f40ce491171b1f, type: 3}
+  - {fileID: 21300000, guid: e40b0c5af8c1844c889fd54cc8a88458, type: 3}
+  - {fileID: 21300000, guid: b24487aa91014452ea1cc293a56e34a5, type: 3}
+  - {fileID: 21300000, guid: 9721b8bb4683f4571b1b2f1bcd8bf28c, type: 3}
+  - {fileID: 21300000, guid: be9ecafbb7e2fe7428733c135cd0aaa8, type: 3}
+  - {fileID: 21300000, guid: 760050dda7173489587e9152412b6edc, type: 3}
+  - {fileID: 21300000, guid: 53d2b0fe44f044887a10ffab02f33e8a, type: 3}
+  - {fileID: 21300000, guid: d9f2b65f4e839ce4281ff59a98d5d78e, type: 3}
+  - {fileID: 21300000, guid: cbb5ddffe76ef4d6f9f29417218ca758, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - button_exit
+  - menu
+  - shuqian2
+  - bg
+  - dot3
+  - yellow
+  - dot4
+  - dot1
+  - gray
+  - volbutton
+  - dot2
+  - line
+  - vol1
+  - block2
+  - red
+  - block3
+  - blue
+  - green
+  - vol
+  - replaybuttonBG
+  - block4
+  - block1
+  - music
+  - replaybutton
+  - black
+  - music1
+  - C3Aforbidingbox
+  m_RenderDataMap: {}
+  m_Tag: Atlas
+  m_IsVariant: 0
+  m_IsPlaceholder: 0
